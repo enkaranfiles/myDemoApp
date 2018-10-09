@@ -23,7 +23,11 @@ public class App
       return false;
     }
 
-    public static boolean myMethod(ArrayList<Integer> list, ArrayList<Integer> list2) {
+    public static boolean myMethod(ArrayList<Integer> list, ArrayList<Integer> list2,int size1,int size2) {
+
+      if(size1 == size2){
+        return false;
+      }
 
       for(int i = 0; i < list2.size(); i++) {
         if(!search(list,list2.get(i))){
@@ -72,7 +76,7 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           int input4AsInt = Integer.parseInt(input4);
 
-          boolean result = App.myMethod(inputList, inputList2);
+          boolean result = App.myMethod(inputList, inputList2,input2AsInt,input4AsInt);
 
          Map map = new HashMap();
           map.put("result", result);

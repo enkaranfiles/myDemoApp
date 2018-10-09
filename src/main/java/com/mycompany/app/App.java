@@ -5,6 +5,9 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,24 +17,24 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App
 {
 
-  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,ArrayList<Integer> len1,ArrayList<Integer> len2){
+  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){
     boolean issame=false;
-    if(len1.get(0)<=0 && len2.get(0) <=0 && len1.get(0) == len2.get(0)){
-      return false;
-    }else{
-      for(int i=0;i<len1.get(0);i++){
-        for(int j=0;j<len2.get(0);j++){
-            if(array.get(i)==array1.get(j) && len1.size() == len2.size()){
-              issame=true;
-              array.remove(i);
-              array1.remove(j);
-            }else{
-              issame=false;
-              break;
-            }
+    Collections.sort(array);
+    Collections.sort(array1);
+    if(array.size() != size || array1.size() != size1) {
+      issame = false;
+    }else if(array1.size() == 0 || array.size() == 0) {
+      issame = false;
+    }else if(array.size() != array1.size()){
+      issame = false;
+    }else {
+      for(int i = 0; i < array.size(); i++ ) {
+        if(array.get(i) != array1.get(i)) {
+          issame = false;
         }
       }
     }
+    
     return issame;
   }
    
@@ -66,15 +69,8 @@ public class App
           }
         //  System.out.println(inputList);
 
-          String input2 = req.queryParams("input2");
-          java.util.Scanner sc2 = new java.util.Scanner(input1);
-          sc2.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
-          while (sc2.hasNext())
-          {
-            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
-            inputList2.add(value);
-          }
+          String input2 = req.queryParams("input2").replaceAll("\\s", "");
+          int inpu2AsInt = Integer.parseInt(input2);                  //input2 2.kutucuk
 
           String input3 = req.queryParams("input3");
           java.util.Scanner sc3 = new java.util.Scanner(input1);
@@ -87,17 +83,10 @@ public class App
           }
 
 
-          String input4 = req.queryParams("input4");
-          java.util.Scanner sc4 = new java.util.Scanner(input1);
-          sc4.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList4 = new java.util.ArrayList<>();
-          while (sc4.hasNext())
-          {
-            int value = Integer.parseInt(sc4.next().replaceAll("\\s",""));
-            inputList4.add(value);
-          }
+          String input4 = req.queryParams("input4").replaceAll("\\s", "");
+          int inpu4AsInt = Integer.parseInt(input4);                  //input2 2.kutucuk
 
-          boolean result = App.issameArray( inputList, inputList3,inputList2,inputList4);
+          boolean result = App.issameArray( inputList, inputList3,inpu2AsInt,inpu4AsInt);
 
          Map map = new HashMap();
           map.put("result", result);

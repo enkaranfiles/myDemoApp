@@ -40,35 +40,35 @@ public class AppTest
     {
         assertTrue( true );
     }*/
-      public void testFound() {
+      public void testContent() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(4, 3, 2, 1));
       assertTrue(new App().myMethod(array,array2,4,4));
     }
 
-    public void testNotFound() {
+    public void testContent1() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       int result=array.size();
       int result2=array.size();
       
-      assertFalse(new App().myMethod(array,array2,result,result2));
+      assertTrue(new App().myMethod(array,array2,result,result2));
     }
 
     public void testEmptyArray() {
       ArrayList<Integer> array = new ArrayList<>();
       ArrayList<Integer> array2 = new ArrayList<>();
 
-      assertFalse(new App().myMethod(array,array2,0,0));
+      assertTrue(new App().myMethod(array,array2,0,0));
     }
 
-    public void testNull() {
+    public void testNotEqual() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1));
       ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1));
       int result=array.size();
       int result2=array.size();
       
-      assertFalse(new App().myMethod(array,array2,result,result2));
+      assertTrue(new App().myMethod(array,array2,result,result2));
     }
 
     public void testSize(){

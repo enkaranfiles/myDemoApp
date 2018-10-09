@@ -14,14 +14,14 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App
 {
 
-  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){
+  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,ArrayList<Integer> len1,ArrayList<Integer> len2){
     boolean issame=false;
-    if(size<=0 && size <=0){
+    if(len1.get(0)<=0 && len2.get(0) <=0){
       return false;
     }else{
       for(int i=0;i<array.size();i++){
         for(int j=0;j<array1.size();j++){
-            if(array.get(i)==array1.get(j) && size == size1){
+            if(array.get(i)==array1.get(j) && len1.size() == len2.size()){
               issame=true;
             }
         }
@@ -59,13 +59,40 @@ public class App
             int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
             inputList.add(value);
           }
-          System.out.println(inputList);
+        //  System.out.println(inputList);
+
+          String input2 = req.queryParams("input2");
+          java.util.Scanner sc2 = new java.util.Scanner(input1);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
+          while (sc2.hasNext())
+          {
+            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+            inputList.add(value);
+          }
+
+          String input3 = req.queryParams("input3");
+          java.util.Scanner sc3 = new java.util.Scanner(input1);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList3 = new java.util.ArrayList<>();
+          while (sc3.hasNext())
+          {
+            int value = Integer.parseInt(sc3.next().replaceAll("\\s",""));
+            inputList.add(value);
+          }
 
 
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
+          String input4 = req.queryParams("input4");
+          java.util.Scanner sc4 = new java.util.Scanner(input1);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList4 = new java.util.ArrayList<>();
+          while (sc3.hasNext())
+          {
+            int value = Integer.parseInt(sc4.next().replaceAll("\\s",""));
+            inputList.add(value);
+          }
 
-          boolean result = App.search(inputList, input2AsInt);
+          boolean result = App.issameArray( inputList, inputList3,inputList2,inputList4);
 
          Map map = new HashMap();
           map.put("result", result);

@@ -25,7 +25,10 @@ public class App
 
     public static boolean myMethod(ArrayList<Integer> list, ArrayList<Integer> list2,int size1,int size2) {
 
-      if(size1 == size2){
+      if(size1 != size2){
+        return false;
+      }
+      if(list2.equals(null) || list.equals(null)){
         return false;
       }
       for(int i = 0; i < list2.size(); i++) {

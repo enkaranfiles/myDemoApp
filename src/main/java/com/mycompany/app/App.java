@@ -18,7 +18,7 @@ public class App
 {
 
   public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){
-    boolean issame=false;
+    boolean issame=true;
     Collections.sort(array);
     Collections.sort(array1);
    /* if(array.size() != size || array1.size() != size1) {

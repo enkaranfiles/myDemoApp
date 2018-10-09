@@ -5,9 +5,6 @@ import static spark.Spark.port;
 import static spark.Spark.post;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,28 +13,6 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-
-  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){  
-    if(array.size() != size || array1.size() != size1) {
-      return false;
-    }
-    if(array1.size() == 0 || array.size() == 0) {
-      return false;
-    }
-    if(array.size() != array1.size()){
-      return false;
-    }    
-    for(int i = 0; i < array.size(); i++ ) {
-      for(int j=0; j<array1.size();j++){
-        if(array.get(i) != array1.get(j)) {
-        return false;
-        }
-      }
-    }
-    return true;
-  }
-   
-
     public static boolean search(ArrayList<Integer> array, int e) {
       System.out.println("inside search");
       if (array == null) return false;
@@ -66,26 +41,13 @@ public class App
             int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
             inputList.add(value);
           }
-        //  System.out.println(inputList);
-
-          String input2 = req.queryParams("input2").replaceAll("\\s", "");
-          int inpu2AsInt = Integer.parseInt(input2);                  //input2 2.kutucuk
-
-          String input3 = req.queryParams("input3");
-          java.util.Scanner sc3 = new java.util.Scanner(input1);
-          sc3.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList3 = new java.util.ArrayList<>();
-          while (sc3.hasNext())
-          {
-            int value = Integer.parseInt(sc3.next().replaceAll("\\s",""));
-            inputList3.add(value);
-          }
+          System.out.println(inputList);
 
 
-          String input4 = req.queryParams("input4").replaceAll("\\s", "");
-          int inpu4AsInt = Integer.parseInt(input4);                  //input2 2.kutucuk
+          String input2 = req.queryParams("input2").replaceAll("\\s","");
+          int input2AsInt = Integer.parseInt(input2);
 
-          boolean result = App.issameArray( inputList, inputList3,inpu2AsInt,inpu4AsInt);
+          boolean result = App.search(inputList, input2AsInt);
 
          Map map = new HashMap();
           map.put("result", result);
@@ -101,7 +63,6 @@ public class App
             },
             new MustacheTemplateEngine());
     }
-
 
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();

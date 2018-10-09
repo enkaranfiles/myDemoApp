@@ -14,19 +14,36 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
-      if (array == null) return false;
 
-      for (int elt : array) {
-        if (elt == e) return true;
+  public static String reverseArray(ArrayList<Integer> array,ArrayList<Integer> reverse,int size,String result){
+    if(size<0){
+      return "Verilen liste bos";
+    }else{
+      for(int i=array.size()-1;i>=0;i--){
+        reverse.add(array.get(i));
+        
       }
-      return false;
     }
+    for(int i=0;i<reverse.size();i++){
+       result+=""+reverse.get(i)+" ";
+    }
+ 
+    return result;
+
+  }
+  public static boolean search(ArrayList<Integer> array, int e) {
+    System.out.println("inside search");
+    if (array == null) return false;
+
+    for (int elt : array) {
+      if (elt == e) return true;
+    }
+    return false;
+}
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
-
+       
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {
@@ -43,12 +60,13 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
+          ArrayList<Integer> reverse= new ArrayList<>(inputList.size());
 
+         // String input2 = req.queryParams("input2").replaceAll("\\s","");
+         // int input2AsInt = Integer.parseInt(input2);
 
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
-
-          boolean result = App.search(inputList, input2AsInt);
+          String result = "";
+          result=App.search(inputList, reverse , inputList.size() ,result);
 
          Map map = new HashMap();
           map.put("result", result);

@@ -40,7 +40,8 @@ public class AppTest
     {
         assertTrue( true );
     }*/
-      public void testFound() {
+    /*
+    public void testFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertTrue(new App().search(array, 4));
     }
@@ -58,5 +59,5 @@ public class AppTest
     public void testNull() {
       assertFalse(new App().search(null, 1));
     }
-
+    */
 }

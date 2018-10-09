@@ -10,7 +10,10 @@ import java.util.Map;
 
 import spark.ModelAndView;
 import spark.template.mustache.MustacheTemplateEngine;
-
+/*
+Yazdıgım method iki arrayi karşilaştırıp iki arrayde aynı elemanlar varsa ve eşit size a sahip iseler true dönmektedir.
+Verilen search methodunu kullanarak arama işlemini gerçekleştirdim.
+*/
 public class App
 {
     public static boolean search(ArrayList<Integer> array, int e) {

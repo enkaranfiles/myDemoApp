@@ -68,7 +68,7 @@ public class App
           while (sc2.hasNext())
           {
             int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
-            inputList.add(value);
+            inputList2.add(value);
           }
 
           String input3 = req.queryParams("input3");
@@ -78,7 +78,7 @@ public class App
           while (sc3.hasNext())
           {
             int value = Integer.parseInt(sc3.next().replaceAll("\\s",""));
-            inputList.add(value);
+            inputList3.add(value);
           }
 
 
@@ -89,7 +89,7 @@ public class App
           while (sc3.hasNext())
           {
             int value = Integer.parseInt(sc4.next().replaceAll("\\s",""));
-            inputList.add(value);
+            inputList4.add(value);
           }
 
           boolean result = App.issameArray( inputList, inputList3,inputList2,inputList4);

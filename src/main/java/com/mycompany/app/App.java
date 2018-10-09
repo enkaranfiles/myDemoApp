@@ -23,6 +23,17 @@ public class App
       return false;
     }
 
+    public static boolean myMethod(ArrayList<Integer> list, ArrayList<Integer> list2) {
+
+      for(int i = 0; i < list2.size(); i++) {
+        if(!search(list,list2.get(i))){
+          return false;
+        }
+      }
+
+      return true;
+    }
+
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
@@ -46,6 +57,20 @@ public class App
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
+
+          String input3 = req.queryParams("input3");
+          java.util.Scanner sc2 = new java.util.Scanner(input3);
+          sc1.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
+          while (sc2.hasNext())
+          {
+            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+            inputList2.add(value);
+          }
+          System.out.println(inputList2);
+
+          String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
 
           boolean result = App.search(inputList, input2AsInt);
 

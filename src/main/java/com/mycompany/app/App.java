@@ -14,20 +14,23 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App
 {
 
-  public static String reverseArray(ArrayList<Integer> array,ArrayList<Integer> reverse,int size,String result){
-    if(size<0){
-      return "Verilen liste bos";
+  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){
+    boolean issame=false;
+    if(size<=0 && size <=0){
+      return false;
     }else{
-      for(int i=array.size()-1;i>=0;i--){
-        reverse.add(array.get(i));
-        
+      for(int i=0;i<array.size();i++){
+        for(int j=0;j<array1.size();j++){
+            if(array.get(i)==array1.get(j) && size == size1){
+              issame=true;
+            }
+        }
       }
     }
-    for(int i=0;i<reverse.size();i++){
-       result+=""+reverse.get(i)+" ";
-    }
-    return result;
+    return issame;
   }
+   
+
     public static boolean search(ArrayList<Integer> array, int e) {
       System.out.println("inside search");
       if (array == null) return false;
@@ -78,6 +81,7 @@ public class App
             },
             new MustacheTemplateEngine());
     }
+
 
     static int getHerokuAssignedPort() {
         ProcessBuilder processBuilder = new ProcessBuilder();

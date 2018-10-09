@@ -28,9 +28,6 @@ public class App
       if(size1 == size2){
         return false;
       }
-     if(list2.equals(null)){
-       return false;
-     }
       for(int i = 0; i < list2.size(); i++) {
         if(!search(list,list2.get(i))){
           return false;

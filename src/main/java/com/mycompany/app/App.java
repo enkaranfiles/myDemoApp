@@ -13,6 +13,21 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
+
+  public static String reverseArray(ArrayList<Integer> array,ArrayList<Integer> reverse,int size,String result){
+    if(size<0){
+      return "Verilen liste bos";
+    }else{
+      for(int i=array.size()-1;i>=0;i--){
+        reverse.add(array.get(i));
+        
+      }
+    }
+    for(int i=0;i<reverse.size();i++){
+       result+=""+reverse.get(i)+" ";
+    }
+    return result;
+  }
     public static boolean search(ArrayList<Integer> array, int e) {
       System.out.println("inside search");
       if (array == null) return false;

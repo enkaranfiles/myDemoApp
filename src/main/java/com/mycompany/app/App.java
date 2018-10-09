@@ -19,8 +19,8 @@ public class App
     if(len1.get(0)<=0 && len2.get(0) <=0){
       return false;
     }else{
-      for(int i=0;i<array.size();i++){
-        for(int j=0;j<array1.size();j++){
+      for(int i=0;i<len1.get(0);i++){
+        for(int j=0;j<len2.get(0);j++){
             if(array.get(i)==array1.get(j) && len1.size() == len2.size()){
               issame=true;
             }

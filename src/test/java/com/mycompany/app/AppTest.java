@@ -35,7 +35,7 @@ public class AppTest extends TestCase
     //    assertTrue( true );
    // }
 
-    public void testFound() {
+    /*public void testFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertEquals(new App().reverseArray(array,reverse,array.size(),result).charAt(0),array.get(array.size()-1));
     }
@@ -58,7 +58,7 @@ public class AppTest extends TestCase
     public void testResult(){
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
       assertEquals(new App().reverseArray(array,reverse,array.size(),result).length(),2*array.size());
-    }
+    }*/
 
 
 

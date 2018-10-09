@@ -17,10 +17,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App
 {
 
-  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){
-    Collections.sort(array);
-    Collections.sort(array1);
-    
+  public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,int size,int size1){  
     if(array.size() != size || array1.size() != size1) {
       return false;
     }
@@ -31,8 +28,10 @@ public class App
       return false;
     }    
     for(int i = 0; i < array.size(); i++ ) {
-      if(array.get(i) != array1.get(i)) {
+      for(int j=0; j<array1.size();j++){
+        if(array.get(i) != array1.get(j)) {
         return false;
+        }
       }
     }
     return true;

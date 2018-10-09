@@ -25,6 +25,7 @@ public class App
     for(int i = 0; i < array.size(); i++ ) {
       if(array.get(i) != array1.get(i)) {
         issame=false;
+        break;
       }
     }
 

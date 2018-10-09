@@ -21,19 +21,19 @@ public class App
     boolean issame=false;
     Collections.sort(array);
     Collections.sort(array1);
-    if(array.size() != size || array1.size() != size1) {
+   /* if(array.size() != size || array1.size() != size1) {
       issame = false;
     }else if(array1.size() == 0 || array.size() == 0) {
       issame = false;
     }else if(array.size() != array1.size()){
       issame = false;
-    }else {
+    }else {*/
       for(int i = 0; i < array.size(); i++ ) {
         if(array.get(i) != array1.get(i)) {
           issame = false;
         }
       }
-    }
+  /*}*/
     
     return issame;
   }

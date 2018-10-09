@@ -66,7 +66,7 @@ public class App
          // int input2AsInt = Integer.parseInt(input2);
 
           String result = "";
-          result=App.search(inputList, reverse , inputList.size() ,result);
+          result=App.reverseArray(inputList, reverse , inputList.size() ,result);
 
          Map map = new HashMap();
           map.put("result", result);

@@ -16,7 +16,7 @@ public class App
 
   public static boolean issameArray(ArrayList<Integer> array,ArrayList<Integer> array1,ArrayList<Integer> len1,ArrayList<Integer> len2){
     boolean issame=false;
-    if(len1.get(0)<=0 && len2.get(0) <=0){
+    if(len1.get(0)<=0 && len2.get(0) <=0 && len1.get(0) == len2.get(0)){
       return false;
     }else{
       for(int i=0;i<len1.get(0);i++){

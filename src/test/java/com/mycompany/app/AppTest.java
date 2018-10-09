@@ -63,8 +63,12 @@ public class AppTest
     }
 
     public void testNull() {
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().myMethod(array,null,0,3));
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1));
+      int result=array.size();
+      int result2=array.size();
+      
+      assertFalse(new App().myMethod(array,array2,result,result2));
     }
 
     public void testSize(){

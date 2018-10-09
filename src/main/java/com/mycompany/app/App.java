@@ -72,7 +72,7 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           int input4AsInt = Integer.parseInt(input4);
 
-          boolean result = App.search(inputList, input2AsInt);
+          boolean result = App.myMethod(inputList, inputList2);
 
          Map map = new HashMap();
           map.put("result", result);

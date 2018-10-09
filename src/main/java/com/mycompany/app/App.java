@@ -23,6 +23,11 @@ public class App
         for(int j=0;j<len2.get(0);j++){
             if(array.get(i)==array1.get(j) && len1.size() == len2.size()){
               issame=true;
+              array.remove(i);
+              array1.remove(j);
+            }else{
+              issame=false;
+              break;
             }
         }
       }
